@@ -12,6 +12,7 @@ use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
+
     'router' => [
         'routes' => [
             'home' => [
@@ -36,11 +37,64 @@ return [
             ],
         ],
     ],
+
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
         ],
     ],
+
+    'navigation' => [
+        'default' => [
+            [
+                'label' => 'Home',
+                'route' => 'home',
+            ],
+            [
+                'label' => 'Album',
+                'route' => 'album',
+                'pages' => [
+                    [
+                        'label'  => 'Add',
+                        'route'  => 'album',
+                        'action' => 'add',
+                    ],
+                    [
+                        'label'  => 'Edit',
+                        'route'  => 'album',
+                        'action' => 'edit',
+                    ],
+                    [
+                        'label'  => 'Delete',
+                        'route'  => 'album',
+                        'action' => 'delete',
+                    ],
+                ],
+            ],
+            [
+                'label' => 'Blog',
+                'route' => 'blog',
+                'pages' => [
+                    [
+                        'label'  => 'Add',
+                        'route'  => 'blog',
+                        'action' => 'add',
+                    ],
+                    [
+                        'label'  => 'Edit',
+                        'route'  => 'blog',
+                        'action' => 'edit',
+                    ],
+                    [
+                        'label'  => 'Delete',
+                        'route'  => 'blog',
+                        'action' => 'delete',
+                    ],
+                ],
+            ],
+        ],
+    ],
+
     'view_manager' => [
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
