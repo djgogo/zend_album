@@ -17,6 +17,7 @@ use Interop\Container\Exception\ContainerException;
 use Zend\ServiceManager\Exception\ServiceNotCreatedException;
 use Zend\ServiceManager\Exception\ServiceNotFoundException;
 use Zend\ServiceManager\Factory\FactoryInterface;
+use Blog\Model\PostRepositoryInterface;
 
 class WriteControllerFactory implements FactoryInterface
 {
@@ -38,7 +39,8 @@ class WriteControllerFactory implements FactoryInterface
         $formManager = $container->get('FormElementManager');
         return new WriteController(
             $container->get(PostCommandInterface::class),
-            $formManager->get(PostForm::class)
+            $formManager->get(PostForm::class),
+            $container->get(PostRepositoryInterface::class)
         );
     }
 }
