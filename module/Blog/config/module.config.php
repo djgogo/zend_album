@@ -24,6 +24,7 @@ return [
         'factories' => [
             Controller\ListController::class => Factory\ListControllerFactory::class,
             Controller\WriteController::class => Factory\WriteControllerFactory::class,
+            Controller\DeleteController::class => Factory\DeleteControllerFactory::class,
         ],
     ],
 
@@ -81,6 +82,20 @@ return [
                             'defaults' => [
                                 'controller' => Controller\WriteController::class,
                                 'action'     => 'edit',
+                            ],
+                            'constraints' => [
+                                'id' => '[1-9]\d*',
+                            ],
+                        ],
+                    ],
+
+                    'delete' => [
+                        'type' => Segment::class,
+                        'options' => [
+                            'route' => '/delete/:id',
+                            'defaults' => [
+                                'controller' => Controller\DeleteController::class,
+                                'action'     => 'delete',
                             ],
                             'constraints' => [
                                 'id' => '[1-9]\d*',
