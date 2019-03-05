@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "php": "^5.6 || ^7.0",
+        "php": "^7.0",
         "zendframework/zend-component-installer": "^2.1",
         "zendframework/zend-mvc": "^3.0.1",
         "zfcampus/zf-development-mode": "^3.0",
@@ -35,7 +35,8 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "ApplicationTest\\": "module/Application/test/"
+            "ApplicationTest\\": "module/Application/test/",
+            "AlbumTest\\": "module/Album/test/"
         }
     },
     "extra": [],
@@ -53,6 +54,6 @@
     },
     "require-dev": {
         "zendframework/zend-developer-tools": "^1.1.0",
-        "zendframework/zend-test": "^3.0.1"
+        "zendframework/zend-test": "^3.2"
     }
 }
