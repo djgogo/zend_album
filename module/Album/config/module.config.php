@@ -1,6 +1,7 @@
 <?php
 namespace Album;
 
+use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Album\Controller\AlbumController;
 use Zend\ServiceManager\Factory\InvokableFactory;
@@ -13,7 +14,7 @@ return [
 //    ],
 
     'home' => [
-        'type' => \Zend\Router\Http\Literal::class,
+        'type' => Literal::class,
         'options' => [
             'route'    => '/',
             'defaults' => [
